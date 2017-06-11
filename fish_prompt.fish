@@ -21,5 +21,5 @@ function fish_prompt -d "Prints left prompt"
         end
     end
 
-    echo -sn " $pwd_color$pwd $glyph_color$glyph "
+    printf " $pwd_color$pwd $glyph_color$glyph "
 end

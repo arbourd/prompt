@@ -1,6 +1,6 @@
 function fish_right_prompt -d "Prints right prompt"
     function __git_modified_files -d "Counts number of modified files"
-        command git status --porcelain --ignore-submodules ^ /dev/null | wc -l | string trim
+        count (command git status --porcelain --ignore-submodules)
     end
 
     if set branch_name (git_branch_name)
@@ -21,7 +21,7 @@ function fish_right_prompt -d "Prints right prompt"
             set git_changed_files (set_color yellow)"$git_modified_files changed "
         end
 
-        echo -sn "$git_changed_files$git_color$branch_name$git_ahead "
+        printf "$git_changed_files$git_color$branch_name$git_ahead "
         set_color $fish_color_normal
     end
 end
