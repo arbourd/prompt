@@ -26,4 +26,7 @@ jobs:
           fisher install $GITHUB_WORKSPACE
 
       - shell: fish {0}
-        run: fish_prompt && fish_right_prompt
+        run: fish_prompt
+
+      - shell: fish {0}
+        run: fish_right_prompt

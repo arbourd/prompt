@@ -13,13 +13,13 @@ function fish_prompt -d "Prints left prompt"
         set pwd_color (set_color red)
     end
 
-    if git_is_repo
-        if git_is_staged
+    if command git rev-parse --git-dir > /dev/null 2>/dev/null
+        if ! command git diff --cached --no-ext-diff --quiet --exit-code 2>/dev/null
             set glyph_color (set_color green)
-        else if git_is_stashed
+        else if command git rev-parse --verify --quiet refs/stash > /dev/null 2>/dev/null
             set glyph_color (set_color yellow)
         end
     end
 
-    printf " $pwd_color$pwd $glyph_color$glyph "
+    printf "$pwd_color$pwd $glyph_color$glyph "
 end
