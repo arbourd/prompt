@@ -20,11 +20,11 @@ function fish_right_prompt -d "Prints right prompt"
         switch "$behind $ahead"
             case " " "0 0"
             case "0 *"
-                echo " ↑"
+                printf " ↑"
             case "* 0"
-                echo " ↓"
+                printf " ↓"
             case "*"
-                echo " ⥄"
+                printf " ⥄"
         end
     end
 
